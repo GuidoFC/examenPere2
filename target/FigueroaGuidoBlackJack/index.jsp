@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+<%--    http://localhost:8080/FigueroaGuidoBlackJack/index.jsp --%>
     <title>BlackJack</title>
 </head>
 <body>

@@ -1,3 +1,7 @@
+org\example\blackjack\controler\CardSerlvertCrear.class
+org\example\blackjack\Service\CardService.class
+org\example\blackjack\api\ApiCard.class
 org\example\blackjack\model\Card.class
+org\example\blackjack\DAO\CardDAOImpl.class
 org\example\blackjack\model\Deck.class
 org\example\blackjack\util\ApiProvider.class
