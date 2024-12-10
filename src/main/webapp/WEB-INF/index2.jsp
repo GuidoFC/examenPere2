@@ -8,7 +8,7 @@
 <body>
 <header>
 <nav>
-    <a href="${pageContext.request.contextPath}">New deck</a> | <a href="deck">Historic of decks</a>
+    <a href="${pageContext.request.contextPath}">New deck</a> | <a href="crear">Historic of decks</a>
 </nav>
 </header>
 
