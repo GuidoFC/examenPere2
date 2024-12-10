@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.blackjack.Service.DeckService;
-import org.example.blackjack.api.ApiCard;
+import org.example.blackjack.api.ApiDeck;
 import org.example.blackjack.model.Deck;
 import org.json.JSONObject;
 import java.io.IOException;
@@ -31,14 +31,16 @@ public class DeckSerlvertCrear extends HttpServlet {
 
 
             try {
-                // TODO tengo que decir cuantas cartas quiero
-                ApiCard apiCard = new ApiCard(2);
-                JSONObject jsonResponse = apiCard.getNasaApi();
+
+                ApiDeck apiDeck = new ApiDeck();
+                // Todo tengo que coger por el html lo que me envia y ponerlo en numeroBarjas!!!
+                int numeroBarjas = 3;
+                JSONObject jsonResponse = apiDeck.getDeckFromApi(numeroBarjas);
                 System.out.println("Que cojo??");
                 System.out.println(jsonResponse.toString());
 
 
-
+                // TODO tengo que decir cuantas cartas quiero
                 String [] infoApi =   cardService.guardarInformacionNasaApi(jsonResponse);
                 System.out.println("Info recuperada de la API!!!");
                 System.out.println(infoApi[0]);
@@ -48,7 +50,11 @@ public class DeckSerlvertCrear extends HttpServlet {
                 deck.setRemaining(Integer.parseInt(infoApi[1]));
                 cardService.saveDeck(deck);
 
+                request.setAttribute("deck", deck);
 
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/index2.jsp");
+                System.out.println("processRequest de DeckSerlvet 23");
+                dispatcher.forward(request, response);
 
 
 

@@ -55,4 +55,11 @@ public class DeckService {
     public void saveDeck(Deck deck) {
         cardDAO.save(deck);
     }
+
+    public Deck getDeckByid(String id) {
+
+        Deck deck = cardDAO.findById(id);
+
+        return deck;
+    }
 }

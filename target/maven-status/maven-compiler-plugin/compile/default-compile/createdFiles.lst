@@ -1,3 +1,4 @@
+org\example\blackjack\api\ApiDeck.class
 org\example\blackjack\api\ApiCard.class
 org\example\blackjack\model\Card.class
 org\example\blackjack\controler\DeckSerlvertCrear.class

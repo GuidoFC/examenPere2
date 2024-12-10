@@ -1,5 +1,6 @@
 package org.example.blackjack.api;
 
+import org.example.blackjack.model.Deck;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -9,18 +10,18 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ApiCard {
-    private int numBarajar;
 
 
-    public ApiCard(int numBarajar) {
-        this.numBarajar = numBarajar;
+
+    public ApiCard() {
+
     }
 
-    public JSONObject getNasaApi() throws IOException {
+    public JSONObject getCartasFromApi(Deck deck, int numeroCartas) throws IOException {
 //        todo
 
-// "https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=" + this.numBarajar
-        URL url = new URL("https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");
+// "https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=" + this.numCartasCoger
+        URL url = new URL("https://www.deckofcardsapi.com/api/deck/" + deck.getId() +   "/draw/?count=" + numeroCartas);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
 

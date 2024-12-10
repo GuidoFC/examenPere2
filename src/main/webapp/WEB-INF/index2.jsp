@@ -1,18 +1,27 @@
+<%@ page import="org.example.blackjack.model.Deck" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-<%--    http://localhost:8080/FigueroaGuidoBlackJack/index.jsp --%>
+    <%--    http://localhost:8080/FigueroaGuidoBlackJack/index.jsp --%>
     <title>BlackJack</title>
 </head>
 <body>
 <header>
-<nav>
-    <a href="${pageContext.request.contextPath}">New deck</a> | <a href="crear">Historic of decks</a>
-</nav>
+    <nav>
+        <a href="${pageContext.request.contextPath}">New deck</a> | <a href="crear">Historic of decks</a>
+    </nav>
 </header>
 
 <main>
+    <%
+        if (request.getAttribute("deck") != null) {
+
+            System.out.println("Funciona enviar la carta AAAA");
+        }else {
+            System.out.println("No envio ninguna carta AAAA");
+        }
+    %>
     <c:choose>
         <c:when test="${not empty deck}">
             <h2>Deck ID: ${deck.id}</h2>
@@ -38,7 +47,8 @@
             </c:forEach>
         </c:when>
         <c:otherwise>
-            <form action="deck" method="post">
+            <form action="pedirCartas" method="post">
+                <input type="hidden" name="deckId" value="${deck.id}">
                 <label for="numberOfDecks">Number of deck sets</label>
                 <input type="number" id="numberOfDecks" name="numberOfDecks" value="1" min="1">
                 <input type="submit" value="New deck">
