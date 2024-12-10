@@ -39,7 +39,11 @@ public class CardSerlvertCrear  extends HttpServlet {
 
 
 
-                cardService.guardarInformacionNasaApi(jsonResponse);
+                String [] infoApi =   cardService.guardarInformacionNasaApi(jsonResponse);
+                System.out.println("Ya casi esta");
+                System.out.println(infoApi[0]);
+                System.out.println(infoApi[1]);
+
 
 
             } catch (Exception e) {
